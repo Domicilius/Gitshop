@@ -1,0 +1,77 @@
+What is Git?
+    A way to protect your code from yourself and others
+    A checkpoint/save system for code
+    A way to keep track of *versions* of code, which is why its called
+        "version control"
+    
+    Commonly used in group development to keep the working "production" 
+        code clean and ready to deploy/"turn in"
+
+    Git is a command line tool that is used by many other tools. Git
+        Kraken, Tortoise Git, Github, Gitlab all interface and interact 
+        with Git, but the base level is still usable by anyone.
+
+    Not gonna teach Git GUI tools, because they all build on top of the
+        command line knowledge to make it easier. Having the commandline
+        knowledge makes it transferable to any of the GUI tools.
+
+    There are other version control systems out there (SVN, RCS,
+        proprietary) but git is most widely used and *basic* concepts can
+        apply across most systems
+
+Basic Git
+    All you need to know to use Git locally
+    git works with subdirectories, so make a new subdirectory
+    To get git to start tracking a directory, initialize it with 'git init'
+        then 'git commit -m "initial commit"'
+    Can also clone an existing git-tracked project (called a "code
+        repository" or just "repo")
+
+    Basic git workflow is:
+        Make changes    (code generation)
+            optionally: see all your changes since last save w/ 'git diff'
+            Can use 'git status' at any point to check on your repo
+        Mark changes    (git add)
+        Save changes    (git commit -m)
+
+    Commit messages should be short and informational, picture them as
+    comment messages for your commit
+
+    Loading a previous version
+        Find the version you want to jump to        (git log)
+        Change to that version                      (git revert $NAME)
+                                                    (git revert HEAD)
+        Many different ways to accomplish this
+        like loading without leaving erase marks    (git reset $NAME)
+        (not recommended)
+
+Branching
+    We've been working with one line of history
+    Branching allows you to test out code as you're writing it, without
+        polluting your main version
+    Branches keep track of their version of the code and can be swapped
+        between at will
+    use 'git branch' at any time to list all branches as well as see
+        which branch you're on
+    use 'git branch $NAME' to make a new branch
+    use 'git checkout $NAME' to switch to a new branch
+        'git checkout -b $NAME' creates a new branch and checks it out
+    
+    Once a branch is working great, merge it back into your master code!
+    git checkout master
+    git merge $BRANCHNAME
+
+    can use 'git branch -d' to delete an old branch
+    only delete a branch if you know for sure you wont need it again!
+
+    branch to make all new features (including fixing bugs)
+    this practice lines up really well to keep things compartmentalized
+
+Remote Git
+    Local git isn't very useful if the computer is compromised or if you
+        lose access to the computer
+    Only feasible way to collaborate using git
+    Repositories can be stored and accessed remotely
+    A popular place to store repositories for remote access is Github
+
+    
